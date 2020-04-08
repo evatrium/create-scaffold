@@ -1,4 +1,4 @@
-module.exports = ({name}) => {
+module.exports = ({packageName}) => {
 
     let html = `\
 <!doctype html>
@@ -9,7 +9,7 @@ module.exports = ({name}) => {
         <meta name="Description" content="Put your description here.">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <base href="/">
-        <title>${name || ''}</title>
+        <title>${packageName || ''}</title>
 </head>
 <body>
 <noscript>JavaScript is required to use this app.</noscript>

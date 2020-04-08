@@ -3,19 +3,9 @@ const path = require("path");
 const glob = require('tiny-glob/sync');
 const {series} = require("asyncro");
 const inquirer = require("inquirer");
-const camelCase = require("camelcase");
 
 const {cyan, green} = require('kleur');
 
-
-const removeScope = name => name.replace(/^@.*\//, '');
-
-const safeVariableName = name =>
-    camelCase(
-        removeScope(name)
-            .toLowerCase()
-            .replace(/((^[^a-zA-Z]+)|[^\w.-])|([^a-zA-Z0-9]+$)/g, ''),
-    );
 
 const createProject = async (options) => {
 
@@ -31,9 +21,9 @@ const createProject = async (options) => {
 
     await fse.copy(path.join(fromHere, `templates/${template}/`), cwd);
 
-    const parts = glob(`template_parts/${template}/*`, {cwd: fromHere});
+    const parts = glob(`template_parts/${template}/**`, {cwd: fromHere});
 
-    const commonParts = glob(`template_parts/common/*`, {cwd: fromHere});
+    const commonParts = glob(`template_parts/common/**`, {cwd: fromHere});
 
     parts.concat(commonParts);
 
@@ -72,7 +62,6 @@ module.exports = async () => {
 
     await createProject({
         packageName: name,
-        name: safeVariableName(name),
         template
     });
 

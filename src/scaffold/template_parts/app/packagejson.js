@@ -1,4 +1,6 @@
- module.exports = (options) => {
+ const deps = require('../../deps');
+
+module.exports = (options) => {
     let pkg = {
         name: options.packageName,
         version: "0.0.1",
@@ -11,16 +13,11 @@
             "test:watch": "jest --config config/jest.js --watch"
         },
         dependencies:{
-          preact: "*"
+            ...deps.frameworks
         },
         devDependencies: {
-            "babel-jest": "^25.1.0",
-            "enzyme": "^3.10.0",
-            "enzyme-adapter-preact-pure": "^2.0.0",
-            "identity-obj-proxy": "^3.0.0",
-            "jest": "^25.1.0",
-            "jest-environment-jsdom-sixteen": "^1.0.3",
-            "rollup-configured": "^0.0.10"
+            ...deps.buildTools,
+            ...deps.testing
         },
     };
 
