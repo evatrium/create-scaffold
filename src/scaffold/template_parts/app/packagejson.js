@@ -1,6 +1,4 @@
-
-
-export default (options) => {
+ module.exports = (options) => {
     let pkg = {
         name: options.packageName,
         version: "0.0.1",

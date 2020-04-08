@@ -1,4 +1,4 @@
-export default ({name}) => {
+module.exports = ({name}) => {
 
     let html = `\
 <!doctype html>

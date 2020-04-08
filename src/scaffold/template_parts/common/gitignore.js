@@ -1,4 +1,4 @@
-export default () => ({
+module.exports =  () => ({
     file: '.gitignore',
     content: `\
 ## npm
