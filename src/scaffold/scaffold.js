@@ -1,5 +1,4 @@
-import fse from "fs-extra";
-
+const fse = require("fs-extra");
 const path = require("path");
 const glob = require('tiny-glob/sync');
 const {series} = require("asyncro");
