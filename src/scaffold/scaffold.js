@@ -38,7 +38,7 @@ const createProject = async (options) => {
     parts.concat(commonParts);
 
     await series(parts.map((part) => async () => {
-        const filePart = require(path.join(fromHere, part)).default;
+        const filePart = require(path.join(fromHere, part));
         const {file, content} = await filePart(options);
         return await fse.writeFile(path.join(cwd, file), content);
     }));
