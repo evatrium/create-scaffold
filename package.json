@@ -1,12 +1,11 @@
 {
-	"name": "create-x-project",
-	"version": "0.0.6",
+	"name": "create-scaffold",
+	"version": "0.0.1",
 	"description": "cli for generating, developing and bundling modern web apps and libraries",
 	"license": "MIT",
 	"author": "iosio",
 	"bin": {
-		"create-x-project": "bin/create-x-project",
-		"x": "bin/create-x-project"
+		"create-scaffold": "bin/create-scaffold"
 	},
 	"publishConfig": {
 		"access": "public"
