@@ -1,6 +1,5 @@
 import fse from "fs-extra";
 
-const {log, isDirEmpty} = require("@iosio/node-util");
 const path = require("path");
 const glob = require('tiny-glob/sync');
 const {series} = require("asyncro");
