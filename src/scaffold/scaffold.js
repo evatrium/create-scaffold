@@ -52,33 +52,29 @@ module.exports = async () => {
 
     const questions = [];
 
-    const isEmpty = await isDirEmpty(process.cwd());
 
-    if (isEmpty) {
+    questions.push({
+        type: 'input',
+        name: 'name',
+        message: 'Enter package name...',
+        default: '@scope/my_project',
+    });
 
-        questions.push({
-            type: 'input',
-            name: 'name',
-            message: 'Enter package name...',
-            default: '@scope/my_project',
-        });
+    questions.push({
+        type: 'list',
+        name: 'template',
+        message: 'Please choose which project template to use',
+        choices: ['app', 'lib'],
+        default: 'app',
+    });
 
-        questions.push({
-            type: 'list',
-            name: 'template',
-            message: 'Please choose which project template to use',
-            choices: ['app', 'lib'],
-            default: 'app',
-        });
+    const {name, template} = await inquirer.prompt(questions);
 
-        const {name, template} = await inquirer.prompt(questions);
+    await createProject({
+        packageName: name,
+        name: safeVariableName(name),
+        template
+    });
 
-        await createProject({
-            packageName: name,
-            name: safeVariableName(name),
-            template
-        });
-
-    }
 
 };
