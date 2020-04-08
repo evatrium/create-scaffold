@@ -8,9 +8,9 @@ const camelCase = require("camelcase");
 const {cyan, green} = require('kleur');
 
 
-export const removeScope = name => name.replace(/^@.*\//, '');
+const removeScope = name => name.replace(/^@.*\//, '');
 
-export const safeVariableName = name =>
+const safeVariableName = name =>
     camelCase(
         removeScope(name)
             .toLowerCase()
@@ -48,7 +48,7 @@ const createProject = async (options) => {
 };
 
 
-export const scaffold = async () => {
+module.exports = async () => {
 
     const questions = [];
 
